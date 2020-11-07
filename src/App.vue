@@ -1,17 +1,13 @@
 <template>
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
-  <Moon/>
+  <router-link to="/">home</router-link>
+  <router-link to="/doc">document</router-link>
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Moon from './components/Moon.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    Moon
-  }
+  name: 'App'
 }
 </script>
