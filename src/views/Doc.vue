@@ -2,7 +2,7 @@
    <div class="docWrapper">
        <TopNav/>
        <div class="content">
-           <aside>
+           <aside v-if="menuVisible">
                <h2>
                    组件列表
                </h2>
@@ -28,15 +28,16 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
     import TopNav from '../components/TopNav.vue';
+    import {inject, Ref} from 'vue';
     export default {
         name:'Doc',
         components: {TopNav},
-        data(){
-            return {
-            }
-        }
+        setup(){
+            const menuVisible=inject<Ref<boolean>>('menuVisible');
+            return {menuVisible};
+        },
     };
 </script>
 
@@ -61,18 +62,13 @@
                     margin: 10px 0;
                     &.active{
                         color: $light-color;
-
+                        font-weight: 600;
                     }
                 }
 
             }
             >main{
                 flex: 8;
-            }
-            @media (max-width:500px){
-                aside{
-                    display: none;
-                }
             }
         }
     }

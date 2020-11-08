@@ -1,8 +1,7 @@
 <template>
     <div class="topNavWrapper">
-        <div class="logo">
+        <div class="logo" @click="changeVisible">
             <img src="src/assets/logo.jpg"/>
-<!--            <span>MoonUI</span>-->
         </div>
         <div class="topNav">
             <router-link to="/">主页</router-link>
@@ -11,9 +10,17 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import {inject,Ref} from 'vue';
     export default {
-        name:'TopNav'
+        name:'TopNav',
+        setup(){
+            const menuVisible=inject<Ref<boolean>>('menuVisible');
+            const changeVisible=()=>{
+                menuVisible.value=!menuVisible.value;
+            }
+            return {changeVisible};
+        },
     };
 </script>
 
