@@ -2,8 +2,7 @@
    <div class="docWrapper">
        <TopNav/>
        <div class="content">
-           <img @click="showAside=!showAside" src="src/assets/detail.png">
-           <aside v-if="showAside">
+           <aside>
                <h2>
                    组件列表
                </h2>
@@ -36,7 +35,6 @@
         components: {TopNav},
         data(){
             return {
-                showAside:false
             }
         }
     };
@@ -54,9 +52,6 @@
             flex-grow: 1;
             overflow: auto;
             padding: 5px;
-            >img{
-                display: none;
-            }
             >aside{
                 flex: 2;
                 display: flex;
@@ -78,10 +73,6 @@
                 aside{
                     display: none;
                 }
-                img{
-                    display: block;
-                }
-
             }
         }
     }
