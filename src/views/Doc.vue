@@ -3,9 +3,9 @@
        <TopNav/>
        <div class="content">
            <aside v-if="menuVisible">
-               <h2>
+               <h3>
                    组件列表
-               </h2>
+               </h3>
                <ul>
                    <li class="active">
                       <router-link to="/doc/switch">switch</router-link>
@@ -51,10 +51,10 @@
         >.content{
             display: flex;
             flex-grow: 1;
-            overflow: auto;
+            overflow: hidden;
             padding: 5px;
             >aside{
-                flex: 2;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 li{
@@ -68,7 +68,8 @@
 
             }
             >main{
-                flex: 8;
+                flex: 3;
+                overflow: scroll;
             }
         }
     }
