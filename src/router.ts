@@ -4,6 +4,7 @@ import Switch from './components/Switch.vue'
 import Button from './components/Button.vue'
 import Dialog from './components/Dialog.vue'
 import Tabs from './components/Tabs.vue'
+import Docdefault from './components/Docdefault.vue'
 import {createWebHistory,createRouter} from 'vue-router'
 
 const history=createWebHistory();
@@ -18,6 +19,10 @@ const router=createRouter({
             path:'/doc',
             component:Doc,
             children:[
+                {
+                    path:'',
+                    component:Docdefault
+                },
                 {
                     path:'switch',
                     component:Switch
