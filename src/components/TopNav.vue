@@ -1,13 +1,18 @@
 <template>
-    <div class="topNavWrapper">
-        <div class="logo" @click="changeVisible">
-            <img src="src/assets/logo.jpg"/>
-        </div>
-        <div class="topNav">
-            <router-link to="/">主页</router-link>
-            <router-link to="/doc">文档</router-link>
-        </div>
-    </div>
+   <div class="topWrapper">
+       <div class="detail" @click="changeVisible">
+           <img src="src/assets/detail.png"/>
+       </div>
+       <div class="topNavWrapper">
+           <div class="logo">
+               <img src="src/assets/logo.jpg"/>
+           </div>
+           <div class="topNav">
+               <router-link to="/">主页</router-link>
+               <router-link to="/doc">文档</router-link>
+           </div>
+       </div>
+   </div>
 </template>
 
 <script lang="ts">
@@ -26,32 +31,61 @@
 
 <style lang="scss" scoped>
     @import "src/index.scss";
-    .topNavWrapper{
+    .topWrapper{
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 5px;
-        color: #424a63;
-        font-size: 20px;
-        >.logo{
-            display: flex;
-            align-items: center;
-            >img{
+        >.detail{
+            display: none;
+            img{
                 width: 40px;
                 height:40px;
-                margin-right: 10px;
             }
         }
-        >.topNav{
-            >a{
-                &:hover{
-                    border-bottom: 2px solid $light-color;
-                }
-                &:not(last-child){
-                    margin-right:10px;
+        >.topNavWrapper{
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            color: #424a63;
+            font-size: 20px;
+            >.logo{
+                >img{
+                    width: 40px;
+                    height:40px;
                 }
             }
+            >.topNav{
+                >a{
+                    &:hover{
+                        border-bottom: 2px solid $light-color;
+                    }
+                    &:not(last-child){
+                        margin-right:10px;
+                    }
+                }
 
+            }
+
+        }
+    }
+
+    @media(max-width: 500px){
+        .topWrapper{
+            .detail{
+                display: inline-block;
+            }
+            .topNavWrapper{
+                justify-content: center;
+                >.topNav{
+                    display: none;
+                }
+                >.logo{
+                    >img{
+                        transform: translateX(-50%);
+                    }
+                }
+            }
         }
     }
 </style>
