@@ -1,10 +1,13 @@
 <template>
     <TopNav/>
     <div class="content">
-        <h3>一个简单易上手的UI框架</h3>
+        <div class="introduction">
+            <h3>MoonUI</h3>
+            <h3>一个简单易上手的UI框架</h3>
+        </div>
         <div class="link">
-            <a class="git">Github</a>
-            <a class="get">Get Started</a>
+            <a class="git" href="https://github.com">Github</a>
+            <router-link class="get" to="/doc">Get Started</router-link>
         </div>
     </div>
 </template>
@@ -18,12 +21,18 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "src/index.scss";
     .content{
         display: flex;
         flex-direction: column;
         align-items: center;
-        >h3{
+        >.introduction{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             margin: 20px 0;
+            color: $dark-color;
         }
         >.link{
             display: flex;
@@ -33,12 +42,12 @@
                 padding: 8px;
                 border-radius: 16px;
                 &.git{
-                    background: #7480a3;
+                    background: $light-color;
                     color: white;
                 }
                 &.get{
-                    border:1px solid #7480a3;
-                    color: #7480a3;
+                    border:1px solid $light-color;
+                    color: $light-color;
                 }
             }
         }
