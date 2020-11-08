@@ -2,11 +2,11 @@
     <div class="topNavWrapper">
         <div class="logo">
             <img src="src/assets/logo.jpg"/>
-            <span>MoonUI.js</span>
+<!--            <span>MoonUI</span>-->
         </div>
         <div class="topNav">
-            <router-link to="/">Home</router-link>
-            <router-link to="/doc">Document</router-link>
+            <router-link to="/">主页</router-link>
+            <router-link to="/doc">文档</router-link>
         </div>
     </div>
 </template>
@@ -18,24 +18,30 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "src/index.scss";
     .topNavWrapper{
-        border: 1px solid red;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 5px;
+        color: #424a63;
+        font-size: 20px;
         >.logo{
             display: flex;
             align-items: center;
             >img{
                 width: 40px;
                 height:40px;
+                margin-right: 10px;
             }
         }
         >.topNav{
             >a{
+                &:hover{
+                    border-bottom: 2px solid $light-color;
+                }
                 &:not(last-child){
-                    margin-right:5px;
+                    margin-right:10px;
                 }
             }
 
