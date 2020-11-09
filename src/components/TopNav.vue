@@ -1,11 +1,11 @@
 <template>
    <div class="topWrapper">
        <div class="detail" @click="changeVisible">
-           <img src="src/assets/detail.png"/>
+           <img src="../assets/detail.png"/>
        </div>
        <div class="topNavWrapper">
            <div class="logo">
-               <img src="src/assets/logo.jpg"/>
+               <img src="../assets/logo.jpg"/>
            </div>
            <div class="topNav">
                <router-link to="/">主页</router-link>
