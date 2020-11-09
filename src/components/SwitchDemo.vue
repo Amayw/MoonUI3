@@ -1,6 +1,6 @@
 <template>
     <div>switch的文档哦</div>
-    <Switch :value="checked" @input="checked=$event"></Switch>
+    <Switch v-model:value="bool"></Switch>
 </template>
 
 <script>
@@ -10,8 +10,8 @@
     export default {
         name: 'SwitchDemo',
         setup() {
-            const checked = ref(true);
-            return {checked};
+            const bool = ref(true);
+            return {bool};
         },
         components: {
             Switch
