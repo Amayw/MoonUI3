@@ -1,13 +1,19 @@
 <template>
     <div>switch的文档哦</div>
-    <Switch></Switch>
+    <Switch :value="checked" @input="checked=$event"></Switch>
 </template>
 
 <script>
-    import Switch from '../lib/Switch.vue'
+    import Switch from '../lib/Switch.vue';
+    import {ref} from 'vue';
+
     export default {
-        name:'SwitchDemo',
-        components:{
+        name: 'SwitchDemo',
+        setup() {
+            const checked = ref(true);
+            return {checked};
+        },
+        components: {
             Switch
         }
     };
