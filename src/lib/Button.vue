@@ -1,5 +1,5 @@
 <template>
-    <button class="m-button" :class="{[`theme-${theme}`]:theme}">
+    <button class="m-button" :class="{[`m-theme-${theme}`]:theme}">
         <slot/>
     </button>
 </template>
@@ -16,7 +16,7 @@
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     $h:32px;
     $border-color:#d9d9d9;
     $color:#333;
