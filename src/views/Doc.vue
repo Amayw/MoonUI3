@@ -7,7 +7,7 @@
                    组件列表
                </h3>
                <ul>
-                   <li class="active">
+                   <li  class="active">
                       <router-link to="/doc/switch">switch</router-link>
                    </li>
                    <li>
