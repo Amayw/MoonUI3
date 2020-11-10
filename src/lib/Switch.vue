@@ -1,6 +1,5 @@
 <template>
-    <button :class="{'checked':value}" @click="toggle"><span></span></button>
-    {{checked}}
+    <button class="moon-switch" :class="{'moon-checked':value}" @click="toggle"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -23,7 +22,7 @@
 <style lang="scss">
     $h:22px;
     $h2:$h - 4px;
-    button{
+    .moon-switch{
         position:relative;
         width: 2*$h;
         height: $h;
@@ -42,7 +41,7 @@
             transition: left 0.25s;
         }
 
-        &.checked{
+        &.moon-checked{
             background-color: cornflowerblue;
             >span{
                 animation: run 0.5s;
@@ -56,7 +55,7 @@
             }
         }
 
-        &.checked:active{
+        &.moon-checked:active{
             >span{
                 width:$h2+4px;
                 margin-left: -4px;

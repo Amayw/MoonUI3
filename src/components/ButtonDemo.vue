@@ -1,9 +1,16 @@
 <template>
     <div>buttons文档</div>
-    <Button>button1</Button>
-    <Button theme="a">button2</Button>
-    <Button theme="b">button3</Button>
-    <Button theme="c">button4</Button>
+    <div>
+        <Button>button1</Button>
+        <Button theme="button">button2</Button>
+        <Button theme="link">button3</Button>
+        <Button theme="text">button4</Button>
+    </div>
+    <div>
+        <Button size="big">button1</Button>
+        <Button size="normal">button2</Button>
+        <Button size="small">button3</Button>
+    </div>
 </template>
 
 <script lang="ts">
