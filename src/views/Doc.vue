@@ -7,7 +7,7 @@
                    组件列表
                </h3>
                <ul>
-                   <li  class="active">
+                   <li>
                       <router-link to="/doc/switch">switch</router-link>
                    </li>
                    <li>
@@ -60,7 +60,7 @@
                 li{
                     font-size: 20px;
                     margin: 10px 0;
-                    &.active{
+                    >.router-link-active{
                         color: $light-color;
                         font-weight: 600;
                     }
