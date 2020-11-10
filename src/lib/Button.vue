@@ -1,5 +1,5 @@
 <template>
-    <button class="moon-button" :class="classes">
+    <button class="moon-button" :class="classes" :disabled="disabled">
         <slot/>
     </button>
 </template>
@@ -16,13 +16,22 @@
             size:{
                 type:String,
                 default:'normal'
+            },
+            level:{
+                type:String,
+                default:'normal'
+            },
+            disabled:{
+                type:Boolean,
+                default:false
             }
         },
         setup(props){
-            const {theme,size}=props;
+            const {theme,size,level,disabled}=props;
             const classes=computed(()=>{
                 return {[`moon-theme-${theme}`]:theme,
-                        [`moon-size-${size}`]:size}
+                        [`moon-size-${size}`]:size,
+                        [`moon-level-${level}`]:level,}
             })
             return {classes}
         }
@@ -35,6 +44,8 @@
     $color:#333;
     $blue:#40a9ff;
     $radius:4px;
+    $red: red;
+    $grey: grey;
     .moon-button{
         display:inline-flex;
         justify-content: center;
@@ -71,6 +82,14 @@
             &:hover,&:focus{
                 color: lighten($blue, 10%);
             }
+
+            &.moon-level-danger {
+                color: $red;
+                &:hover,
+                &:focus {
+                    color: darken($red, 10%);
+                }
+            }
         }
         &.moon-theme-text{
             border-color: transparent;
@@ -79,7 +98,46 @@
             &:hover,&:focus{
                 background: darken(white, 5%);
             }
+
+            &.moon-level-main {
+                color: $blue;
+                &:hover,
+                &:focus {
+                    color: darken($blue, 10%);
+                }
+            }
+            &.moon-level-danger {
+                color: $red;
+                &:hover,
+                &:focus {
+                    color: darken($red, 10%);
+                }
+            }
         }
+
+        &.moon-theme-button {
+            &.moon-level-main {
+                background: $blue;
+                color: white;
+                border-color: $blue;
+                &:hover,
+                &:focus {
+                    background: darken($blue, 10%);
+                    border-color: darken($blue, 10%);
+                }
+            }
+            &.moon-level-danger {
+                background: $red;
+                border-color: $red;
+                color: white;
+                &:hover,
+                &:focus {
+                    background: darken($red, 10%);
+                    border-color: darken($red, 10%);
+                }
+            }
+        }
+
         &.moon-size-big{
             font-size: 24px;
             height: $h + 16px;
@@ -91,5 +149,24 @@
             height: $h - 12px;
             padding: 0 4px
         }
+
+        &.moon-theme-button {
+            &[disabled] {
+                cursor: not-allowed;
+                color: $grey;
+                &:hover {
+                    border-color: $grey;
+                }
+            }
+        }
+        &.moon-theme-link, &.moon-theme-text {
+            &[disabled] {
+                cursor: not-allowed;
+                color: $grey;
+            }
+        }
+
+
+
     }
 </style>

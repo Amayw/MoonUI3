@@ -7,9 +7,24 @@
         <Button theme="text">button4</Button>
     </div>
     <div>
-        <Button size="big">button1</Button>
-        <Button size="normal">button2</Button>
-        <Button size="small">button3</Button>
+        <Button size="big" theme="link">button1</Button>
+        <Button size="normal" theme="link">button2</Button>
+        <Button size="small" theme="link">button3</Button>
+    </div>
+    <div>
+        <Button size="big" level="main">button1</Button>
+        <Button size="normal" level="normal">button2</Button>
+        <Button size="small" level="danger">button3</Button>
+    </div>
+    <div>
+        <Button theme="text" size="big" level="main">button1</Button>
+        <Button theme="text" size="normal" level="normal">button2</Button>
+        <Button theme="text" size="small" level="danger">button3</Button>
+    </div>
+    <div>
+        <Button theme="button" disabled>button1</Button>
+        <Button theme="link" :disabled="true">button2</Button>
+        <Button theme="text" :disabled="true">button3</Button>
     </div>
 </template>
 
