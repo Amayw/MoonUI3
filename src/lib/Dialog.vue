@@ -3,10 +3,11 @@
         <div class="moon-dialog-overlay"  @click="clickOverlay"></div>
         <div class="moon-dialog-wrapper">
             <div class="moon-dialog">
-                <header>标题<span class="moon-dialog-close" @click="closeDialog"></span></header>
+                <header>
+                    <slot name="title"></slot>
+                    <span class="moon-dialog-close" @click="closeDialog"></span></header>
                 <main>
-                    <p>第一行</p>
-                    <p>第二行</p>
+                    <slot name="content"></slot>
                 </main>
                 <footer>
                     <m-button level="main"  @click="ok">确认</m-button>
@@ -38,6 +39,9 @@
             },
             cancel:{
                 type:Function
+            },
+            title:{
+                type:String
             }
         },
         setup(props,context){
@@ -58,7 +62,7 @@
             }
 
             const cancel=()=>{
-                if(props.cancel?.cancel()){
+                if(props.cancel?.()){
                     closeDialog();
                 }
             }
