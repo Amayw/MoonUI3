@@ -1,5 +1,6 @@
 <template>
     <button class="moon-button" :class="classes" :disabled="disabled">
+        <span v-if="loading">菊花</span>
         <slot/>
     </button>
 </template>
@@ -24,10 +25,14 @@
             disabled:{
                 type:Boolean,
                 default:false
+            },
+            loading:{
+                type:Boolean,
+                default:false
             }
         },
         setup(props){
-            const {theme,size,level,disabled}=props;
+            const {theme,size,level}=props;
             const classes=computed(()=>{
                 return {[`moon-theme-${theme}`]:theme,
                         [`moon-size-${size}`]:size,

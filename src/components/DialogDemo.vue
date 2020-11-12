@@ -1,79 +1,15 @@
 <template>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-    <div>dialog</div>
-
+    <m-dialog></m-dialog>
 </template>
 
 <script>
-    export default {};
+    import Dialog from '../lib/Dialog.vue'
+    export default {
+        name:'MoonDialogDemo',
+        components:{
+            'm-dialog':Dialog
+        }
+    };
 </script>
 
 <style lang="scss" scoped>

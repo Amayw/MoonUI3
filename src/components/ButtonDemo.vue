@@ -26,6 +26,10 @@
         <Button theme="link" :disabled="true">button2</Button>
         <Button theme="text" :disabled="true">button3</Button>
     </div>
+    <div>
+        <Button loading>button1</Button>
+        <Button :loading="false">button2</Button>
+    </div>
 </template>
 
 <script lang="ts">
