@@ -1,5 +1,6 @@
 <template>
-    <m-dialog :visible="visible"></m-dialog>
+    <m-dialog :visible="visible" @update:visible="visible=$event"
+              :closeOnClickOverlay="closeOnClickOverlay" :ok="f1" :cancel="f2"></m-dialog>
     <m-button @click="visible=!visible">toggle</m-button>
 </template>
 
@@ -15,7 +16,13 @@
         },
         setup(){
             const visible=ref(false);
-            return {visible};
+            const closeOnClickOverlay=ref(false);
+            const f1=()=>{
+                return false;
+            }
+            const f2=()=>{
+            }
+            return {visible,closeOnClickOverlay,f1,f2};
         }
     };
 </script>

@@ -1,16 +1,16 @@
 <template>
     <template  v-if="visible">
-        <div class="moon-dialog-overlay"></div>
+        <div class="moon-dialog-overlay"  @click="clickOverlay"></div>
         <div class="moon-dialog-wrapper">
             <div class="moon-dialog">
-                <header>标题<span class="moon-dialog-close"></span></header>
+                <header>标题<span class="moon-dialog-close" @click="closeDialog"></span></header>
                 <main>
                     <p>第一行</p>
                     <p>第二行</p>
                 </main>
                 <footer>
-                    <m-button level="main">确认</m-button>
-                    <m-button>取消</m-button>
+                    <m-button level="main"  @click="ok">确认</m-button>
+                    <m-button  @click="cancel">取消</m-button>
                 </footer>
             </div>
         </div>
@@ -28,7 +28,41 @@
             visible:{
                 type:Boolean,
                 default:false
+            },
+            closeOnClickOverlay:{
+                type:Boolean,
+                default: true
+            },
+            ok:{
+                type:Function
+            },
+            cancel:{
+                type:Function
             }
+        },
+        setup(props,context){
+            const closeDialog=()=>{
+                context.emit('update:visible',false);
+            }
+
+            const clickOverlay=()=>{
+                if(props.closeOnClickOverlay){
+                    closeDialog();
+                }
+            }
+
+            const ok=()=>{
+                if(props.ok?.()){
+                    closeDialog();
+                }
+            }
+
+            const cancel=()=>{
+                if(props.cancel?.cancel()){
+                    closeDialog();
+                }
+            }
+            return {closeDialog,clickOverlay,ok,cancel}
         }
     };
 </script>
