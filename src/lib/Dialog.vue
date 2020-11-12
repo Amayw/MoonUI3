@@ -1,18 +1,20 @@
 <template>
-    <div class="moon-dialog-overlay"></div>
-    <div class="moon-dialog-wrapper">
-        <div class="moon-dialog">
-            <header>标题<span class="moon-dialog-close"></span></header>
-            <main>
-                <p>第一行</p>
-                <p>第二行</p>
-            </main>
-            <footer>
-                <m-button level="main">确认</m-button>
-                <m-button>取消</m-button>
-            </footer>
+    <template  v-if="visible">
+        <div class="moon-dialog-overlay"></div>
+        <div class="moon-dialog-wrapper">
+            <div class="moon-dialog">
+                <header>标题<span class="moon-dialog-close"></span></header>
+                <main>
+                    <p>第一行</p>
+                    <p>第二行</p>
+                </main>
+                <footer>
+                    <m-button level="main">确认</m-button>
+                    <m-button>取消</m-button>
+                </footer>
+            </div>
         </div>
-    </div>
+    </template>
 </template>
 
 <script>
@@ -21,6 +23,12 @@
         name:'MoonDialog',
         components:{
             'm-button':Button
+        },
+        props:{
+            visible:{
+                type:Boolean,
+                default:false
+            }
         }
     };
 </script>
