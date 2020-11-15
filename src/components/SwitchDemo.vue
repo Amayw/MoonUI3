@@ -1,6 +1,6 @@
 <template>
     <div>switch的文档哦</div>
-    <Switch v-model:value="bool"></Switch>
+    <m-switch v-model:value="bool"></m-switch>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
             return {bool};
         },
         components: {
-            Switch
+            'm-switch':Switch
         }
     };
 </script>

@@ -1,9 +1,15 @@
 <template>
     <div>tabs</div>
+    <m-tabs></m-tabs>
 </template>
 
 <script>
-    export default {};
+    import Tabs from '../lib/Tabs.vue';
+    export default {
+        components: {
+            'm-tabs':Tabs
+        }
+    };
 </script>
 
 <style lang="scss" scoped>

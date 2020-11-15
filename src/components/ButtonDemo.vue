@@ -1,34 +1,34 @@
 <template>
     <div>buttons文档</div>
     <div>
-        <Button>button1</Button>
-        <Button theme="button">button2</Button>
-        <Button theme="link">button3</Button>
-        <Button theme="text">button4</Button>
+        <m-button>button1</m-button>
+        <m-button theme="button">button2</m-button>
+        <m-button theme="link">button3</m-button>
+        <m-button theme="text">button4</m-button>
     </div>
     <div>
-        <Button size="big" theme="link">button1</Button>
-        <Button size="normal" theme="link">button2</Button>
-        <Button size="small" theme="link">button3</Button>
+        <m-button size="big" theme="link">button1</m-button>
+        <m-button size="normal" theme="link">button2</m-button>
+        <m-button size="small" theme="link">button3</m-button>
     </div>
     <div>
-        <Button size="big" level="main">button1</Button>
-        <Button size="normal" level="normal">button2</Button>
-        <Button size="small" level="danger">button3</Button>
+        <m-button size="big" level="main">button1</m-button>
+        <m-button size="normal" level="normal">button2</m-button>
+        <m-button size="small" level="danger">button3</m-button>
     </div>
     <div>
-        <Button theme="text" size="big" level="main">button1</Button>
-        <Button theme="text" size="normal" level="normal">button2</Button>
-        <Button theme="text" size="small" level="danger">button3</Button>
+        <m-button theme="text" size="big" level="main">button1</m-button>
+        <m-button theme="text" size="normal" level="normal">button2</m-button>
+        <m-button theme="text" size="small" level="danger">button3</m-button>
     </div>
     <div>
-        <Button theme="button" disabled>button1</Button>
-        <Button theme="link" :disabled="true">button2</Button>
-        <Button theme="text" :disabled="true">button3</Button>
+        <m-button theme="button" disabled>button1</m-button>
+        <m-button theme="link" :disabled="true">button2</m-button>
+        <m-button theme="text" :disabled="true">button3</m-button>
     </div>
     <div>
-        <Button loading>button1</Button>
-        <Button :loading="false">button2</Button>
+        <m-button loading>button1</m-button>
+        <m-button :loading="false">button2</m-button>
     </div>
 </template>
 
@@ -37,7 +37,7 @@
     export default {
         name:'MoonButtonDemo',
         components:{
-            Button
+            'm-button':Button
         },
         setup() {
 
