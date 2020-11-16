@@ -1,7 +1,7 @@
 <template>
     <div class="moon-tabs">
         <div class="moon-tabs-nav" ref="container">
-            <div :ref="el => { if (el) navItems[index] = el }" @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
+            <div :ref="el => { if (selected===title) selectedItem=el }" @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
             </div>
             <div class="moon-tabs-nav-bottom" ref="indicator"></div>
         </div>
@@ -13,7 +13,7 @@
 
 <script lang="ts">
     import Tab from './Tab.vue'
-    import {ref,onMounted,onUpdated} from 'vue'
+    import {ref,watchEffect} from 'vue'
     export default {
         name:'MoonTabs',
         props:{
@@ -35,22 +35,15 @@
                 context.emit('update:selected',title);
             }
 
-            const navItems = ref<HTMLDivElement[]>([]);
+            const selectedItem = ref<HTMLDivElement>(null);
             const indicator=ref<HTMLDivElement>(null);
             const container=ref<HTMLDivElement>(null);
-            const x=()=>{
-                const result=navItems.value.filter(item=>{
-                    if(item.innerText===props.selected){
-                        return item;
-                    }
-                })
-                const {width,left}=result[0].getBoundingClientRect();
+            watchEffect(()=>{
+                const {width,left}=selectedItem.value.getBoundingClientRect();
                 indicator.value.style.width=width+'px';
                 indicator.value.style.left=(left-container.value.getBoundingClientRect().left)+'px';
-            }
-            onMounted(x);
-            onUpdated(x);
-            return {defaults,titles,select,navItems,indicator,container};
+            })
+            return {defaults,titles,select,selectedItem,indicator,container};
         }
     };
 </script>
