@@ -1,6 +1,6 @@
 <template>
     <div>tabs</div>
-    <m-tabs>
+    <m-tabs v-model:selected="selected">
         <m-tab title="标题一">内容一</m-tab>
         <m-tab title="标题二">内容二</m-tab>
     </m-tabs>
@@ -9,8 +9,13 @@
 <script lang="ts">
     import Tabs from '../lib/Tabs.vue';
     import Tab from '../lib/Tab.vue';
+    import {ref} from 'vue'
     export default {
         name:'MoonTabsDemo',
+        setup(){
+            const selected=ref('标题一');
+            return {selected}
+        },
         components: {
             'm-tab':Tab,
             'm-tabs':Tabs

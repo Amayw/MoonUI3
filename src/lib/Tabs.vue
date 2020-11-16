@@ -1,24 +1,24 @@
 <template>
     <div class="moon-tabs">
         <div class="moon-tabs-nav">
-            <div :class="selected===index?'active':''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
+            <div @click="select(title)" :class="selected===title?'active':''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
         </div>
         <div class="moon-tabs-content">
-            <component :class="selected===index?'active':''" class="moon-tabs-content-item" v-for="(component,index) in defaults" :is="component" :key="index"></component>
+            <component :is="current"></component>
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import Tab from './Tab.vue'
-    import {ref} from 'vue'
+    import {computed} from 'vue'
     export default {
         name:'MoonTabs',
-        // props:{
-        //     selected:{
-        //         type:String,Number
-        //     }
-        // },
+        props:{
+            selected:{
+                type:String,
+            }
+        },
         setup(props,context){
             const defaults=context.slots.default();
             defaults.forEach(item=>{
@@ -27,8 +27,13 @@
                 }
             })
             const titles=defaults.map((item)=>item.props.title)
-            const selected=ref(1);
-            return {defaults,titles,selected};
+            const current=computed(()=>{
+                return defaults.filter(item=>props.selected===item.props.title)[0]
+            });
+            const select=(title)=>{
+                context.emit('update:selected',title);
+            }
+            return {defaults,titles,current,select};
         }
     };
 </script>
