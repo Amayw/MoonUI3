@@ -1,16 +1,17 @@
 <template>
     <div class="moon-tabs">
-        <ul v-for="item in ['tab1','tab2']" key>
-            <li :class="">{{item}}</li>
-        </ul>
-        <div class="moon-content" :class="'active-content'">内容1</div>
-        <div class="moon-content">内容2</div>
+        <slot/>
     </div>
 </template>
 
 <script>
     export default {
-        name:'MoonTabs'
+        name:'MoonTabs',
+        data(){
+            return {
+                selectedId:0
+            }
+        }
     };
 </script>
 
