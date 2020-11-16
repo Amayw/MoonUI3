@@ -1,51 +1,64 @@
 <template>
     <div class="moon-tabs">
         <div class="moon-tabs-nav" ref="container">
-            <div :ref="el => { if (selected===title) selectedItem=el }" @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
-            </div>
+            <div @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item"
+                 v-for="(title,index) in titles" :ref="el => { if (title===selected) selectedItem = el }"
+                 :key="index">{{title}}</div>
             <div class="moon-tabs-nav-bottom" ref="indicator"></div>
         </div>
         <div class="moon-tabs-content">
-            <component :class="{'active':selected===component.props.title}" v-for="(component,index) in defaults" class="moon-tabs-content-item" :is="component" :key="index"></component>
+            <component class="moon-tabs-content-item" :is="current" :key="selected"></component>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import Tab from './Tab.vue'
-    import {ref,watchEffect} from 'vue'
-    export default {
-        name:'MoonTabs',
-        props:{
-            selected:{
-                type:String,
-            }
-        },
-        setup(props,context){
-            const defaults=context.slots.default();
 
-            defaults.forEach(item=>{
-                if(item.type!==Tab){
-                    throw new Error('Tabs 子标签必须是Tab,而你写的是'+item.type)
-                }
-            })
+import Tab from './Tab.vue';
+import {ref, computed, onMounted, onUpdated} from 'vue';
 
-            const titles=defaults.map((item)=>item.props.title)
-            const select=(title)=>{
-                context.emit('update:selected',title);
-            }
-
-            const selectedItem = ref<HTMLDivElement>(null);
-            const indicator=ref<HTMLDivElement>(null);
-            const container=ref<HTMLDivElement>(null);
-            watchEffect(()=>{
-                const {width,left}=selectedItem.value.getBoundingClientRect();
-                indicator.value.style.width=width+'px';
-                indicator.value.style.left=(left-container.value.getBoundingClientRect().left)+'px';
-            })
-            return {defaults,titles,select,selectedItem,indicator,container};
+export default {
+    name: 'MoonTabs',
+    props: {
+        selected: {
+            type: String,
         }
-    };
+    },
+    setup(props, context) {
+        const selectedItem = ref<HTMLDivElement>(null);
+        const indicator = ref<HTMLDivElement>(null);
+        const container = ref<HTMLDivElement>(null);
+        let a=ref(0);
+        const changeSelectedItem=() => {
+            const {width, left: left1} = selectedItem.value.getBoundingClientRect();
+            const {left: left2} = container.value.getBoundingClientRect();
+            indicator.value.style.width = width + 'px';
+            indicator.value.style.left = (left1 - left2) + 'px';
+        }
+        onMounted(changeSelectedItem);
+        onUpdated(changeSelectedItem);
+
+
+        const defaults = context.slots.default();
+        defaults.forEach(item => {
+            if (item.type !== Tab) {
+                throw new Error('Tabs 子标签必须是Tab,而你写的是' + item.type);
+            }
+        });
+
+        const titles = defaults.map((item) => item.props.title);
+        const select = (title) => {
+            context.emit('update:selected', title);
+        };
+
+        const current = computed(() => {
+            return defaults.filter(item => item.props.title === props.selected)[0];
+        });
+
+
+        return {defaults, titles, select, current, selectedItem, indicator, container};
+    }
+};
 </script>
 
 <style lang="scss">
@@ -76,7 +89,6 @@
                 height: 3px;
                 background: $blue;
                 position: absolute;
-                left: 0;
                 bottom: -1px;
                 transition: all 250ms;
             }
@@ -84,12 +96,7 @@
         }
         &-content {
             padding: 8px 0;
-            &-item{
-                display: none;
-                &.active{
-                    display: block;
-                }
-            }
+
 
         }
 
