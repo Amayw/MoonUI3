@@ -1,9 +1,9 @@
 <template>
     <div class="moon-tabs">
         <div class="moon-tabs-nav">
-            <div @click="select(title)" :class="selected===title?`active${title.length}`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
+            <div :ref="el => { if (el) navItems[index] = el }" @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
             </div>
-            <div class="moon-tabs-nav-bottom" ref="computedWidth"></div>
+            <div class="moon-tabs-nav-bottom" ref="indicator"></div>
         </div>
         <div class="moon-tabs-content">
             <component :class="{'active':selected===component.props.title}" v-for="(component,index) in defaults" class="moon-tabs-content-item" :is="component" :key="index"></component>
@@ -13,6 +13,7 @@
 
 <script lang="ts">
     import Tab from './Tab.vue'
+    import {ref,onMounted} from 'vue'
     export default {
         name:'MoonTabs',
         props:{
@@ -22,16 +23,30 @@
         },
         setup(props,context){
             const defaults=context.slots.default();
+
             defaults.forEach(item=>{
                 if(item.type!==Tab){
                     throw new Error('Tabs 子标签必须是Tab,而你写的是'+item.type)
                 }
             })
+
             const titles=defaults.map((item)=>item.props.title)
             const select=(title)=>{
                 context.emit('update:selected',title);
             }
-            return {defaults,titles,select};
+
+            const navItems = ref<HTMLDivElement[]>([]);
+            const indicator=ref<HTMLDivElement>(null);
+            onMounted(()=>{
+                const result=navItems.value.filter(item=>{
+                    if(item.innerText===props.selected){
+                        return item
+                    }
+                })
+                const {width}=result[0].getBoundingClientRect();
+                indicator.value.style.width=width+'px';
+            });
+            return {defaults,titles,select,navItems,indicator};
         }
     };
 </script>
@@ -61,7 +76,6 @@
                 }
             }
             &-bottom{
-                width: 50px;
                 height: 3px;
                 background: $blue;
                 position: absolute;
