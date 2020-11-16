@@ -1,14 +1,24 @@
 <template>
     <div class="moon-tabs">
-        <li v-for="(title,index) in titles" :key="index">{{title}}</li>
-        <component v-for="(component,index) in defaults" :is="component" :key="index"></component>
+        <div class="moon-tabs-nav">
+            <div :class="selected===index?'active':''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
+        </div>
+        <div class="moon-tabs-content">
+            <component :class="selected===index?'active':''" class="moon-tabs-content-item" v-for="(component,index) in defaults" :is="component" :key="index"></component>
+        </div>
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import Tab from './Tab.vue'
+    import {ref} from 'vue'
     export default {
         name:'MoonTabs',
+        // props:{
+        //     selected:{
+        //         type:String,Number
+        //     }
+        // },
         setup(props,context){
             const defaults=context.slots.default();
             defaults.forEach(item=>{
@@ -17,28 +27,38 @@
                 }
             })
             const titles=defaults.map((item)=>item.props.title)
-            return {defaults,titles};
+            const selected=ref(1);
+            return {defaults,titles,selected};
         }
     };
 </script>
 
 <style lang="scss">
     @import "src/index.scss";
+    $blue: #40a9ff;
+    $color: #333;
+    $border-color: #d9d9d9;
     .moon-tabs{
-        >ul{
+        &-nav{
             display: flex;
-            >li{
-                &.active-li{
-                    color:$light-color;
+            color: $color;
+            border-bottom: 1px solid $border-color;
+            &-item{
+                padding: 8px 0;
+                margin: 0 16px;
+                cursor: pointer;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &.active{
+                    color:$blue;
                 }
             }
 
         }
-        >.moon-content{
-            display:none;
-            &.active-content{
-                display: flex;
-            }
+        &-content {
+            padding: 8px 0;
         }
+
     }
 </style>

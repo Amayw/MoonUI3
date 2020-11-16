@@ -20,7 +20,7 @@
     </teleport>
 </template>
 
-<script>
+<script lang="ts">
     import Button from './Button.vue'
     export default {
         name:'MoonDialog',

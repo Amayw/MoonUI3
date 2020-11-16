@@ -11,7 +11,7 @@
     <m-button @click="visible=!visible">toggle</m-button>
 </template>
 
-<script>
+<script lang="ts">
     import Dialog from '../lib/Dialog.vue'
     import Button from '../lib/Button.vue'
     import {ref} from 'vue'
