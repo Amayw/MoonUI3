@@ -1,6 +1,6 @@
 <template>
     <div class="moon-tabs">
-        <div class="moon-tabs-nav">
+        <div class="moon-tabs-nav" ref="container">
             <div :ref="el => { if (el) navItems[index] = el }" @click="select(title)" :class="selected===title?`active`:''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}
             </div>
             <div class="moon-tabs-nav-bottom" ref="indicator"></div>
@@ -13,7 +13,7 @@
 
 <script lang="ts">
     import Tab from './Tab.vue'
-    import {ref,onMounted} from 'vue'
+    import {ref,onMounted,onUpdated} from 'vue'
     export default {
         name:'MoonTabs',
         props:{
@@ -37,16 +37,20 @@
 
             const navItems = ref<HTMLDivElement[]>([]);
             const indicator=ref<HTMLDivElement>(null);
-            onMounted(()=>{
+            const container=ref<HTMLDivElement>(null);
+            const x=()=>{
                 const result=navItems.value.filter(item=>{
                     if(item.innerText===props.selected){
-                        return item
+                        return item;
                     }
                 })
-                const {width}=result[0].getBoundingClientRect();
+                const {width,left}=result[0].getBoundingClientRect();
                 indicator.value.style.width=width+'px';
-            });
-            return {defaults,titles,select,navItems,indicator};
+                indicator.value.style.left=(left-container.value.getBoundingClientRect().left)+'px';
+            }
+            onMounted(x);
+            onUpdated(x);
+            return {defaults,titles,select,navItems,indicator,container};
         }
     };
 </script>
@@ -81,6 +85,7 @@
                 position: absolute;
                 left: 0;
                 bottom: -1px;
+                transition: all 250ms;
             }
 
         }
