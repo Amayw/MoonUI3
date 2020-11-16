@@ -4,7 +4,7 @@
             <div @click="select(title)" :class="selected===title?'active':''" class="moon-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
         </div>
         <div class="moon-tabs-content">
-            <component :is="current"></component>
+            <component :class="{'active':selected===component.props.title}" v-for="(component,index) in defaults" class="moon-tabs-content-item" :is="component" :key="index"></component>
         </div>
     </div>
 </template>
@@ -27,13 +27,10 @@
                 }
             })
             const titles=defaults.map((item)=>item.props.title)
-            const current=computed(()=>{
-                return defaults.filter(item=>props.selected===item.props.title)[0]
-            });
             const select=(title)=>{
                 context.emit('update:selected',title);
             }
-            return {defaults,titles,current,select};
+            return {defaults,titles,select};
         }
     };
 </script>
@@ -63,6 +60,13 @@
         }
         &-content {
             padding: 8px 0;
+            &-item{
+                display: none;
+                &.active{
+                    display: block;
+                }
+            }
+
         }
 
     }
