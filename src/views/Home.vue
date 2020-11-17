@@ -17,17 +17,17 @@
             <li>
                 <m-icon icon="vuejs"></m-icon>
                 <h2>基于 Vue 3</h2>
-                <p>这是我在学习Vue3是做的一个UI组件库，其中是用到了大量Vue3知识</p>
+                <p>这是我在学习Vue3是做的一个UI组件库</p>
             </li>
             <li>
                 <m-icon icon="ts"></m-icon>
                 <h2>基于 Typescript</h2>
-                <p>源代码采用Typescript书写（非严格检查）</p>
+                <p>源代码采用 Typescript 书写(非严格检查)</p>
             </li>
             <li>
                 <m-icon icon="ui1"></m-icon>
                 <h2>代码易读</h2>
-                <sp>每个组件的源代码都规范书写，极其易读，具体用法请参考文档</sp>
+                <sp>每个组件的源代码都规范书写，极其易读</sp>
             </li>
         </ul>
 
@@ -116,9 +116,7 @@
                 display: grid;
                 justify-content: start;
                 align-content: space-between;
-                grid-template-areas:
-        "icon title"
-        "icon text";
+                grid-template-areas:"icon title" "icon text";
                 grid-template-columns: 80px auto;
                 grid-template-rows: 1fr auto;
 

@@ -1,23 +1,37 @@
 <template>
    <div class="docWrapper">
-       <TopNav detailVisible />
+       <TopNav class="topnav" detailVisible />
        <div class="content">
            <aside v-if="menuVisible">
+               <h3>
+                   文档
+               </h3>
+               <ul>
+                   <li>
+                       <router-link to="/doc/intro">介绍</router-link>
+                   </li>
+                   <li>
+                       <router-link to="/doc/install">安装</router-link>
+                   </li>
+                   <li>
+                       <router-link to="/doc/getstart">开始使用</router-link>
+                   </li>
+               </ul>
                <h3>
                    组件列表
                </h3>
                <ul>
                    <li>
-                      <router-link to="/doc/switch">switch</router-link>
+                      <router-link to="/doc/switch">Switch 组件</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/button">button</router-link>
+                       <router-link to="/doc/button">Button 组件</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/dialog">dialog</router-link>
+                       <router-link to="/doc/dialog">Dialog 组件</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/tabs">tabs</router-link>
+                       <router-link to="/doc/tabs">Tabs 组件</router-link>
                    </li>
                </ul>
            </aside>
@@ -49,18 +63,22 @@
         flex-direction: column;
         height: 100vh;
         color: $dark-color;
+        >.topnav{
+            background: rgba(240, 241, 245, 1);
+        }
         >.content{
             display: flex;
             flex-grow: 1;
             overflow: hidden;
-            padding: 5px;
             >aside{
                 flex: 1;
                 display: flex;
                 flex-direction: column;
+                background: linear-gradient(180deg, rgba(240, 241, 245, 1) 0%, rgba(213,227,248,1) 100%);
+                padding-top: 20px;
+                padding-left: 20px ;
                 li{
-                    font-size: 20px;
-                    margin: 10px 0;
+                    margin: 10px auto;
                     >.router-link-active{
                         color: $light-color;
                         font-weight: 600;
@@ -69,7 +87,7 @@
 
             }
             >main{
-                flex: 3;
+                flex: 5;
                 overflow: scroll;
             }
         }
