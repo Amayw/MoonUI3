@@ -54,8 +54,6 @@
         color: #424a63;
         font-size: 20px;
         >.logo{
-            margin-left: 50%;
-            transform: translateX(-50%);
             >img{
                 width: 40px;
                 height:40px;
@@ -84,6 +82,10 @@
                 position: absolute;
                 left: 10px;
                 top: 10px;
+            }
+            >.logo{
+                margin-left: 50%;
+                transform: translateX(-50%);
             }
             >.topNav{
                 display: none;
