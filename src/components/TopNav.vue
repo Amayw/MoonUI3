@@ -4,11 +4,10 @@
            <img src="../assets/detail.png"/>
        </div>
        <div class="topNavWrapper">
-           <div class="logo">
+           <router-link to="/" class="logo">
                <img src="../assets/logo.jpg"/>
-           </div>
+           </router-link>
            <div class="topNav">
-               <router-link to="/">主页</router-link>
                <router-link to="/doc">文档</router-link>
            </div>
        </div>
@@ -30,10 +29,12 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "src/index.scss";
+    $light-color: #fcd75a;
+    $dark-color:#424a63;
     .topWrapper{
         display: flex;
         align-items: center;
+
         >.detail{
             display: none;
             img{
@@ -53,6 +54,7 @@
                 >img{
                     width: 40px;
                     height:40px;
+                    border-radius: 20px;
                 }
             }
             >.topNav{

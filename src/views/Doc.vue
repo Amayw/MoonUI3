@@ -42,7 +42,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "src/index.scss";
+    $light-color: #fcd75a;
+    $dark-color:#424a63;
     .docWrapper{
         display: flex;
         flex-direction: column;
