@@ -63,9 +63,7 @@
         flex-direction: column;
         height: 100vh;
         color: $dark-color;
-        >.topnav{
-            background: rgba(240, 241, 245, 1);
-        }
+
         >.content{
             display: flex;
             flex-grow: 1;
@@ -74,7 +72,7 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                background: linear-gradient(180deg, rgba(240, 241, 245, 1) 0%, rgba(213,227,248,1) 100%);
+                background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(213,227,248,1) 100%);
                 padding-top: 20px;
                 padding-left: 20px ;
                 li{
