@@ -1,6 +1,6 @@
 <template>
    <div class="docWrapper">
-       <TopNav/>
+       <TopNav detailVisible />
        <div class="content">
            <aside v-if="menuVisible">
                <h3>

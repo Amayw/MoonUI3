@@ -17,6 +17,7 @@
                     menuVisible.value=false;
                 }
             })
+            return {menuVisible}
         }
     };
 </script>
