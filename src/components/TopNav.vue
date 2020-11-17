@@ -1,7 +1,7 @@
 <template>
        <div class="topNavWrapper">
            <div v-if="detailVisible" class="detail" @click="changeVisible">
-               <img src="../assets/detail.png"/>
+               <m-icon class="icon-img" icon="more"></m-icon>
            </div>
            <router-link to="/" class="logo">
                <img src="../assets/logo.jpg"/>
@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+    import Icon from '../components/Icon.vue'
     import {inject,Ref} from 'vue';
     export default {
         name:'TopNav',
@@ -21,6 +22,9 @@
               type:Boolean,
               default:false
           }
+        },
+        components:{
+          'm-icon':Icon
         },
         setup(){
             const menuVisible=inject<Ref<boolean>>('menuVisible');
@@ -38,12 +42,11 @@
     .topNavWrapper{
         >.detail{
             display: none;
-            img{
-                width: 40px;
-                height:40px;
+            .icon-img{
+                width: 30px;
+                height:30px;
             }
         }
-        border: 1px solid rosybrown;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -79,8 +82,8 @@
             >.detail{
                 display: inline-block;
                 position: absolute;
-                left: 0;
-                top: 5px;
+                left: 10px;
+                top: 10px;
             }
             >.topNav{
                 display: none;
