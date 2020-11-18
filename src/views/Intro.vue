@@ -1,22 +1,19 @@
 <template>
     <div>
-        <article class="markdown-body">
-            <pre><code>yarn add github-markdown-css</code></pre>
-            <p>aaa</p>
-            <pre><code>yarn add github-markdown-css</code></pre>
-            <p>aaa</p>
-            <pre><code>yarn add github-markdown-css</code></pre>
-            <p>aaa</p>
-            <pre><code>yarn add github-markdown-css</code></pre>
-            <p>aaa</p>
-            <pre><code>yarn add github-markdown-css</code></pre>
-            <p>aaa</p>
+        <article class="markdown-body" v-html="md">
         </article>
     </div>
 </template>
 
 <script>
-    export default {};
+    import md from '../markdown/intro.md'
+    export default {
+        data(){
+            return {
+                md
+            }
+        }
+    };
 </script>
 
 <style lang="scss" scoped>
