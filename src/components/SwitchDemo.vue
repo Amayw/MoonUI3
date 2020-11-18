@@ -1,4 +1,5 @@
 <template>
+    <div>Switch 示例</div>
     <Demo :component="SwitchDemo1"></Demo>
     <Demo :component="SwitchDemo2"></Demo>
 </template>

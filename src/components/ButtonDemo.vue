@@ -1,46 +1,32 @@
 <template>
-    <div>buttons文档</div>
-    <div>
-        <m-button>button1</m-button>
-        <m-button theme="button">button2</m-button>
-        <m-button theme="link">button3</m-button>
-        <m-button theme="text">button4</m-button>
-    </div>
-    <div>
-        <m-button size="big" theme="link">button1</m-button>
-        <m-button size="normal" theme="link">button2</m-button>
-        <m-button size="small" theme="link">button3</m-button>
-    </div>
-    <div>
-        <m-button size="big" level="main">button1</m-button>
-        <m-button size="normal" level="normal">button2</m-button>
-        <m-button size="small" level="danger">button3</m-button>
-    </div>
-    <div>
-        <m-button theme="text" size="big" level="main">button1</m-button>
-        <m-button theme="text" size="normal" level="normal">button2</m-button>
-        <m-button theme="text" size="small" level="danger">button3</m-button>
-    </div>
-    <div>
-        <m-button theme="button" disabled>button1</m-button>
-        <m-button theme="link" :disabled="true">button2</m-button>
-        <m-button theme="text" :disabled="true">button3</m-button>
-    </div>
-    <div>
-        <m-button loading>button1</m-button>
-        <m-button :loading="false">button2</m-button>
-    </div>
+    <div>Button 示例</div>
+    <Demo :component="Button1Demo" />
+    <Demo :component="Button2Demo" />
+    <Demo :component="Button3Demo" />
+    <Demo :component="Button4Demo" />
+    <Demo :component="Button5Demo" />
 </template>
 
 <script lang="ts">
-    import Button from '../lib/Button.vue'
+    import Demo from "./Demo.vue";
+    import Button1Demo from "./Button1.demo.vue";
+    import Button2Demo from "./Button2.demo.vue";
+    import Button3Demo from "./Button3.demo.vue";
+    import Button4Demo from "./Button4.demo.vue";
+    import Button5Demo from "./Button5.demo.vue";
     export default {
         name:'MoonButtonDemo',
         components:{
-            'm-button':Button
+            Demo
         },
         setup() {
-
+            return {
+                Button1Demo,
+                Button2Demo,
+                Button3Demo,
+                Button4Demo,
+                Button5Demo
+            };
         }
     };
 </script>
