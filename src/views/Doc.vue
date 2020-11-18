@@ -63,18 +63,30 @@
         flex-direction: column;
         height: 100vh;
         color: $dark-color;
-
+        >.topnav{
+            background: rgba(240, 241, 245, 1);
+        }
         >.content{
+            position: relative;
             display: flex;
             flex-grow: 1;
             overflow: hidden;
+            padding-left: 170px;
+            @media (max-width: 500px) {
+                padding-left: 0;
+                border: none;
+            }
             >aside{
-                flex: 1;
                 display: flex;
                 flex-direction: column;
-                background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(213,227,248,1) 100%);
-                padding-top: 20px;
-                padding-left: 20px ;
+                background: linear-gradient(180deg, rgba(240, 241, 245, 1) 0%, rgba(213,227,248,1) 100%);
+                width: 150px;
+                padding: 16px;
+                position: fixed;
+                top: 54px;
+                left: 0;
+                min-height: 100vh;
+                z-index:10;
                 li{
                     margin: 10px auto;
                     >.router-link-active{
@@ -85,8 +97,8 @@
 
             }
             >main{
-                flex: 5;
                 overflow: scroll;
+                padding: 16px;
             }
         }
     }
