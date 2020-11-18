@@ -4,7 +4,6 @@ import Switch from './components/SwitchDemo.vue'
 import Button from './components/ButtonDemo.vue'
 import Dialog from './components/DialogDemo.vue'
 import Tabs from './components/TabsDemo.vue'
-import Docdefault from './components/Docdefault.vue'
 import {createWebHistory,createRouter} from 'vue-router'
 import Markdown from './components/Markdown.vue';
 import {h} from 'vue'
@@ -27,7 +26,7 @@ const router=createRouter({
             children:[
                 {
                     path:'',
-                    component:Docdefault
+                    redirect:'/doc/intro'
                 },
                 {
                     path:'switch',

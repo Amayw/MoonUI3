@@ -97,6 +97,7 @@
 
             }
             >main{
+                flex-grow: 1;
                 overflow: scroll;
                 padding: 16px;
             }
