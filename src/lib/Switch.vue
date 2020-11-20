@@ -1,5 +1,5 @@
 <template>
-    <button class="moon-switch" :class="{'moon-checked':value}" @click="toggle"><span></span></button>
+    <button :disabled="disabled" class="moon-switch" :class="{'moon-checked':value,'moon-disabled':disabled}" @click="toggle"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,11 @@
         name:'Switch',
         emits: ['update:value'],
         props:{
-            value:Boolean
+            value:Boolean,
+            disabled:{
+                type:Boolean,
+                default:false
+            }
         },
         setup(props,context){
             const toggle=()=>{
@@ -30,6 +34,9 @@
         border: none;
         outline: none;
         border-radius: $h/2;
+        &+&{
+            margin-left:8px;
+        }
         >span{
             position: absolute;
             width: $h2;
@@ -47,6 +54,11 @@
                 animation: run 0.5s;
                 left: calc(2*#{$h} - #{$h2} - 2px);
             }
+        }
+
+        &.moon-disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         &:active{

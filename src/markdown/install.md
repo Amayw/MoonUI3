@@ -2,14 +2,15 @@
 
 打开终端运行下列命令：
 
+### npm安装
 ```
-npm install king-ui
+npm install Moon-ui
 ```
 
 或
 
+### yarn安装
 ```
-yarn add king-ui
+yarn add Moon-ui
 ```
 
-下一节：[开始使用](#/doc/get-started)

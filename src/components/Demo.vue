@@ -37,7 +37,6 @@
                 return Prism.highlight(props.component.__sourceCode,Prism.languages.html,'html')
             })
             const title=props.component.__sourceCodeTitle;
-
             const codeVisible=ref(false);
             return {Prism,html,title,codeVisible};
         },
@@ -51,11 +50,14 @@
     $border-color: #d9d9d9;
     .demo {
         border: 1px solid $border-color;
-        margin: 16px 0 32px;
+        margin: 32px;
         >h2 {
             font-size: 20px;
             padding: 8px 16px;
             border-bottom: 1px solid $border-color;
+        }
+        &-discribe{
+            font-size: 14px;
         }
         &-component {
             padding: 16px;
@@ -73,5 +75,6 @@
                 margin: 0;
             }
         }
+
     }
 </style>

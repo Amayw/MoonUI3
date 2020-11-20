@@ -6,4 +6,12 @@ Moon UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
 此库仅限学习使用，不建议用于生产环境。
 
-下一节：[安装](#/doc/install)
+### ✨ 特性
+
+🌈 基于 Vue 3 开发的UI库。
+
+🛡 使用 TypeScript 开发。
+
+⚙ 代码简洁可读性好上手快。
+
+🎨 高质量 Vue 组件。

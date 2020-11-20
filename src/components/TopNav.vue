@@ -8,6 +8,9 @@
            </router-link>
            <div class="topNav">
                <router-link to="/doc">文档</router-link>
+               <router-link to="/doc/switch">组件</router-link>
+               <a href="https://github.com">Github</a>
+               <a href="https://github.com">码云</a>
            </div>
        </div>
 </template>
@@ -54,11 +57,11 @@
         color: #424a63;
         font-size: 20px;
         >.logo{
+            margin-left: 40px;
             >img{
                 width: 40px;
                 height:40px;
                 border-radius: 20px;
-                margin-left: 20px;
             }
         }
         >.topNav{
@@ -67,8 +70,12 @@
                     border-bottom: 2px solid $light-color;
                 }
                 &:not(last-child){
-                    margin-right:10px;
+                    margin-right:30px;
                 }
+
+            }
+            &:last-child{
+                margin-right:50px;
             }
 
         }

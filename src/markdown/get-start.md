@@ -1,15 +1,15 @@
 # 开始使用
-请先[安装](#/doc/install)本组件库。
+请先安装本组件库，具体安装方法见上一节。
 
-然后在你的代码中写入下面的代码
+然后在你的代码中添加如下代码，引用组件。
 
 ```
 import {Button, Tabs, Switch, Dialog} from "Moon-ui"
 ```
 
-就可以使用我提供的组件了。
+接下来就可以使用Moon-ui啦。
 
-## Vue 单文件组件
+### Vue 单文件组件
 
 代码示例：
 
@@ -19,10 +19,11 @@ import {Button, Tabs, Switch, Dialog} from "Moon-ui"
     <Button>按钮</Button>
   </div>
 </template>
+
 <script>
-import {Button, Tabs, Switch, Dialog} from "king-ui"
-export default {
-  components: {Button}
-}
+ import {Button, Tabs, Switch, Dialog} from "Moon-ui"
+ export default {
+   components: {Button}
+ }
 </script>
 ```

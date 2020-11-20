@@ -22,16 +22,16 @@
                </h3>
                <ul>
                    <li>
-                      <router-link to="/doc/switch">Switch 组件</router-link>
+                      <router-link to="/doc/switch">Switch 开关</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/button">Button 组件</router-link>
+                       <router-link to="/doc/button">Button 按钮</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/dialog">Dialog 组件</router-link>
+                       <router-link to="/doc/dialog">Dialog 对话框</router-link>
                    </li>
                    <li>
-                       <router-link to="/doc/tabs">Tabs 组件</router-link>
+                       <router-link to="/doc/tabs">Tabs 标签页</router-link>
                    </li>
                </ul>
            </aside>
@@ -71,7 +71,7 @@
             display: flex;
             flex-grow: 1;
             overflow: hidden;
-            padding-left: 170px;
+            padding-left: 290px;
             @media (max-width: 500px) {
                 padding-left: 0;
                 border: none;
@@ -80,15 +80,15 @@
                 display: flex;
                 flex-direction: column;
                 background: linear-gradient(180deg, rgba(240, 241, 245, 1) 0%, rgba(213,227,248,1) 100%);
-                width: 150px;
-                padding: 16px;
+                width: 260px;
+                padding: 16px 50px;
                 position: fixed;
                 top: 54px;
                 left: 0;
                 min-height: 100vh;
                 z-index:10;
                 li{
-                    margin: 10px auto;
+                    margin: 20px auto;
                     >.router-link-active{
                         color: $light-color;
                         font-weight: 600;
