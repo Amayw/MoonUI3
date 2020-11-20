@@ -40,7 +40,7 @@ export default {
 
         const defaults = context.slots.default();
         defaults.forEach(item => {
-            if (item.type !== Tab) {
+            if (item.type.name !== Tab.name) {
                 throw new Error('Tabs 子标签必须是Tab,而你写的是' + item.type);
             }
         });

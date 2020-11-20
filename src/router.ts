@@ -6,10 +6,14 @@ import Dialog from './components/DialogDemo.vue'
 import Tabs from './components/TabsDemo.vue'
 import {createWebHistory,createRouter} from 'vue-router'
 import Markdown from './components/Markdown.vue';
+import intro from './markdown/intro.md'
+import install from './markdown/install.md'
+import getStart from './markdown/get-start.md'
+
 import {h} from 'vue'
 
 const md=(name)=>{
-    return h(Markdown,{path:`../markdown/${name}.md`,key:name})
+    return h(Markdown,{content:name,key:name})
 }
 
 const history=createWebHistory();
@@ -46,15 +50,15 @@ const router=createRouter({
                 },
                 {
                     path:'intro',
-                    component:md('intro')
+                    component:md(intro)
                 },
                 {
                     path:'install',
-                    component:md('install')
+                    component:md(install)
                 },
                 {
                     path:'getstart',
-                    component:md('get-start')
+                    component:md(getStart)
                 }
             ]
         }

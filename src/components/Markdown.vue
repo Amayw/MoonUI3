@@ -4,18 +4,14 @@
 </template>
 
 <script lang="ts">
-    import {ref} from 'vue'
     export default {
         name:'MoonMarkdown',
         props:{
-            path:{
+            content:{
                 type:String
             }
         },
         setup(props){
-            const content=ref<string>(null);
-            import(props.path).then(res=>content.value=res.default)
-            return {content};
         }
     }
 </script>
