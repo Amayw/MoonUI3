@@ -4,7 +4,7 @@
                <m-icon class="icon-img" icon="more"></m-icon>
            </div>
            <router-link to="/" class="logo">
-               <img src="../assets/logo.jpg"/>
+               <img src="/logo.jpg"/>
            </router-link>
            <div class="topNav">
                <router-link to="/doc">文档</router-link>
