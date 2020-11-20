@@ -3,8 +3,10 @@
 </demo>
 
 <template>
-    <Switch v-model:value="bool1" disabled />
-    <Switch v-model:value="bool2" disabled />
+    <div>
+        <Switch v-model:value="bool1" disabled />
+        <Switch v-model:value="bool2" disabled />
+    </div>
 </template>
 
 <script lang="ts">

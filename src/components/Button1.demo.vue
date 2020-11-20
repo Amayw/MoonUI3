@@ -1,11 +1,11 @@
 <demo>
-    常规使用
+    基本用法
 </demo>
 <template>
     <div>
-        <Button>你好</Button>
-        <Button theme="link">你好</Button>
-        <Button theme="text">你好</Button>
+        <Button>默认按钮</Button>
+        <Button theme="link">默认链接</Button>
+        <Button theme="text">默认文本</Button>
     </div>
 </template>
 

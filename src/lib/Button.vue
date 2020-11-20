@@ -1,12 +1,13 @@
 <template>
     <button class="moon-button" :class="classes" :disabled="disabled">
-        <span v-if="loading">菊花</span>
+        <Icon class="moon-button-loading" v-if="loading" icon="loading"/>
         <slot/>
     </button>
 </template>
 
 <script lang="ts">
     import {computed} from 'vue';
+    import Icon from '../components/Icon.vue'
     export default {
         name: 'MoonButton',
         props:{
@@ -31,6 +32,9 @@
                 default:false
             }
         },
+        components:{
+             Icon
+        },
         setup(props){
             const {theme,size,level}=props;
             const classes=computed(()=>{
@@ -47,10 +51,12 @@
     $h:32px;
     $border-color:#d9d9d9;
     $color:#333;
-    $blue:#40a9ff;
+    $blue:#6495ed;
     $radius:4px;
-    $red: red;
-    $grey: grey;
+    $red: #f56c6c;
+    $grey: #909399;
+    $yellow:#e6a23c;
+    $green:#67c23a;
     .moon-button{
         display:inline-flex;
         justify-content: center;
@@ -65,9 +71,7 @@
         cursor: pointer;
         background: white;
         box-shadow: 0 1px 0 fade_out(black, 0.95);
-        &+&{
-            margin-left:8px;
-        }
+        margin: 4px;
         &:hover,
         &:focus{
             color:$blue;
@@ -95,7 +99,31 @@
                     color: darken($red, 10%);
                 }
             }
+
+            &.moon-level-warning {
+                color: $yellow;
+                &:hover,
+                &:focus {
+                    color: darken($yellow, 10%);
+                }
+            }
+            &.moon-level-message {
+                color: $grey;
+                &:hover,
+                &:focus {
+                    color: darken($grey, 10%);
+                }
+            }
+            &.moon-level-success {
+                color: $green;
+                &:hover,
+                &:focus {
+                    color: darken($green, 10%);
+                }
+            }
         }
+
+
         &.moon-theme-text{
             border-color: transparent;
             box-shadow: none;
@@ -116,6 +144,27 @@
                 &:hover,
                 &:focus {
                     color: darken($red, 10%);
+                }
+            }
+            &.moon-level-warning {
+                color: $yellow;
+                &:hover,
+                &:focus {
+                    color: darken($yellow, 10%);
+                }
+            }
+            &.moon-level-message {
+                color: $grey;
+                &:hover,
+                &:focus {
+                    color: darken($grey, 10%);
+                }
+            }
+            &.moon-level-success {
+                color: $green;
+                &:hover,
+                &:focus {
+                    color: darken($green, 10%);
                 }
             }
         }
@@ -141,6 +190,40 @@
                     border-color: darken($red, 10%);
                 }
             }
+
+            &.moon-level-warning {
+                background: $yellow;
+                border-color: $yellow;
+                color: white;
+                &:hover,
+                &:focus {
+                    background: darken($yellow, 10%);
+                    border-color: darken($yellow, 10%);
+                }
+            }
+
+            &.moon-level-success {
+                background: $green;
+                border-color: $green;
+                color: white;
+                &:hover,
+                &:focus {
+                    background: darken($green, 10%);
+                    border-color: darken($green, 10%);
+                }
+            }
+
+            &.moon-level-message {
+                background: $grey;
+                border-color: $grey;
+                color: white;
+                &:hover,
+                &:focus {
+                    background: darken($grey, 10%);
+                    border-color: darken($grey, 10%);
+                }
+            }
+
         }
 
         &.moon-size-big{
@@ -158,7 +241,7 @@
         &.moon-theme-button {
             &[disabled] {
                 cursor: not-allowed;
-                color: $grey;
+                opacity: 0.5;
                 &:hover {
                     border-color: $grey;
                 }
@@ -171,7 +254,15 @@
             }
         }
 
+        >.moon-button-loading{
+            margin-right:4px;
+            animation: moon-spin 1s  infinite linear;
+        }
 
+    }
 
+    @keyframes moon-spin {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
     }
 </style>

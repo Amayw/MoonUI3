@@ -1,11 +1,13 @@
 <demo>
-    常规使用
+    基本用法
 </demo>
 <template>
-    <Tabs v-model:selected="x">
-        <Tab title="导航1">内容1</Tab>
-        <Tab title="导航2">内容2</Tab>
-    </Tabs>
+    <div>
+        <Tabs v-model:selected="x">
+            <Tab title="导航1">内容1</Tab>
+            <Tab title="导航2">内容2</Tab>
+        </Tabs>
+    </div>
 </template>
 
 <script lang="ts">

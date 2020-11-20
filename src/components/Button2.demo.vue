@@ -2,23 +2,21 @@
     支持 size
 </demo>
 <template>
-    <div>
         <div>
-            <Button size="big">大大大</Button>
-            <Button>普普通</Button>
-            <Button size="small">小小小</Button>
+            <Button size="big">大型按钮</Button>
+            <Button>默认按钮</Button>
+            <Button size="small">小型按钮</Button>
         </div>
         <div>
-            <Button theme="link" size="big">大大大</Button>
-            <Button theme="link">普普通</Button>
-            <Button size="small" theme="link">小小小</Button>
+            <Button theme="link" size="big">大型链接</Button>
+            <Button theme="link">默认链接</Button>
+            <Button size="small" theme="link">小型链接</Button>
         </div>
         <div>
-            <Button size="big" theme="text">大大大</Button>
-            <Button theme="text">普普通</Button>
-            <Button size="small" theme="text">小小小</Button>
+            <Button size="big" theme="text">大型文本</Button>
+            <Button theme="text">默认文本</Button>
+            <Button size="small" theme="text">小型文本</Button>
         </div>
-    </div>
 </template>
 
 <script lang="ts">

@@ -3,7 +3,9 @@
 </demo>
 
 <template>
-    <Switch v-model:value="bool" />
+    <div>
+        <Switch v-model:value="bool" />
+    </div>
 </template>
 
 

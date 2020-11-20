@@ -28,7 +28,6 @@ export default {
         const selectedItem = ref<HTMLDivElement>(null);
         const indicator = ref<HTMLDivElement>(null);
         const container = ref<HTMLDivElement>(null);
-        let a=ref(0);
         const changeSelectedItem=() => {
             const {width, left: left1} = selectedItem.value.getBoundingClientRect();
             const {left: left2} = container.value.getBoundingClientRect();
@@ -101,4 +100,5 @@ export default {
         }
 
     }
+
 </style>
