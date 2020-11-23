@@ -1,11 +1,10 @@
 {
   "name": "moonui3",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/moon.js",
-  "module": "dist/lib/moon.esm.js",
+  "main": "dist/lib/moonui.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

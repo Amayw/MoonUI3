@@ -10,7 +10,7 @@ export default {
         globals: {
             vue: 'Vue'
         },
-        name: 'Moon',
+        name: 'moonui3',
         file: 'dist/lib/moon.js',
         format: 'umd',
         plugins: [terser()]
