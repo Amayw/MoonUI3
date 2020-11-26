@@ -1,5 +1,7 @@
 <template>
-    <button :disabled="disabled" class="moon-switch" :class="{'moon-checked':value,'moon-disabled':disabled}" @click="toggle"><span></span></button>
+    <button :disabled="disabled" class="moon-switch" :class="{'moon-checked':value,'moon-disabled':disabled}" @click="toggle">
+        <span></span>
+    </button>
 </template>
 
 <script lang="ts">

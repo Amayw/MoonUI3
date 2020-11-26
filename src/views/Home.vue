@@ -8,7 +8,7 @@
             </div>
             <div class="link">
                 <router-link class="get" to="/doc">Get Start</router-link>
-                <a class="git" href="https://github.com">Github</a>
+                <a class="git" href="https://github.com/Amayw/MoonUI3">Github</a>
             </div>
         </div>
     </div>

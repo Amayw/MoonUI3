@@ -6,7 +6,7 @@
 
 <script lang="ts">
     export default {
-        name:'MoonTab'
+        name:'Tab'
     };
 </script>
 

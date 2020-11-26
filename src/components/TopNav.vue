@@ -9,8 +9,7 @@
            <div class="topNav">
                <router-link to="/doc">文档</router-link>
                <router-link to="/doc/switch">组件</router-link>
-               <a href="https://github.com">Github</a>
-               <a href="https://github.com">码云</a>
+               <a href="https://github.com/Amayw/MoonUI3">Github</a>
            </div>
        </div>
 </template>
@@ -43,6 +42,8 @@
     $light-color: #fcd75a;
     $dark-color:#424a63;
     .topNavWrapper{
+        display: flex;
+        z-index: 20;
         >.detail{
             display: none;
             .icon-img{
@@ -57,8 +58,8 @@
         color: #424a63;
         font-size: 20px;
         >.logo{
-            margin-left: 40px;
             >img{
+                margin-left: 40px;
                 width: 40px;
                 height:40px;
                 border-radius: 20px;
@@ -84,16 +85,19 @@
 
     @media(max-width: 500px){
         .topNavWrapper{
+            display: block;
             position: relative;
             >.detail{
-                display: inline-block;
+                display: block;
                 position: absolute;
                 left: 10px;
                 top: 10px;
             }
             >.logo{
-                margin-left: 50%;
-                transform: translateX(-50%);
+                >img{
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                }
             }
             >.topNav{
                 display: none;

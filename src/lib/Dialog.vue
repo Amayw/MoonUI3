@@ -23,7 +23,7 @@
 <script lang="ts">
     import Button from './Button.vue'
     export default {
-        name:'MoonDialog',
+        name:'Dialog',
         components:{
             'm-button':Button
         },

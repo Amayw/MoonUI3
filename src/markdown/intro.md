@@ -6,6 +6,8 @@ Moon UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
 此库仅限学习使用，不建议用于生产环境。
 
+源代码放在了 [Github](https://github.com/Amayw/MoonUI3) ，历史提交信息非常规范，你可以按提交的顺序逐个查看；你也可以直接查看每个组件的源代码和示例。
+
 ### ✨ 特性
 
 🌈 基于 Vue 3 开发的UI库。

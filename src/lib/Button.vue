@@ -9,7 +9,7 @@
     import {computed} from 'vue';
     import Icon from '../components/Icon.vue'
     export default {
-        name: 'MoonButton',
+        name: 'Button',
         props:{
             theme:{
                 type:String,

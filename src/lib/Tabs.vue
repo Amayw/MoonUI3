@@ -18,7 +18,7 @@ import Tab from './Tab.vue';
 import {ref, computed, onMounted, onUpdated} from 'vue';
 
 export default {
-    name: 'MoonTabs',
+    name: 'Tabs',
     props: {
         selected: {
             type: String,
